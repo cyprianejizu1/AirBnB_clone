@@ -1,157 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-    <title>AirBnB clone</title>
     <link rel="stylesheet" href="styles/4-common.css">
     <link rel="stylesheet" href="styles/3-header.css">
     <link rel="stylesheet" href="styles/3-footer.css">
     <link rel="stylesheet" href="styles/6-filters.css">
     <link rel="stylesheet" href="styles/8-places.css">
-    <link rel="icon" type="image/png" href="images/icon.png">
+    <link rel="icon" href="images/icons.png">
   </head>
-
   <body>
     <header>
+      <div class="logo"></div>
     </header>
     <div class="container">
       <section class="filters">
-          <div class="locations">
-              <h3>States</h3>
-              <h4>California, Arizona...</h4>
-              <ul class="popover">
-                <li><h2>Arizona</h2></li>
-                  <li>
-                    <ul class="sub-popover">
-                      <li>Page</li>
-                      <li>Page2</li>
-                    </ul>
-                  </li>
-                <li><h2>Tunis</h2></li>
-                  <li>
-                    <ul class="sub-popover">
-                      <li>La Marsa</li>
-                      <li>Lac Tunis</li>
-                    </ul>
-                  </li>
-              </ul>
-          </div>
-          <div class="amenities">
-              <h3>Amenities</h3>
-              <h4>Internet, Kitchen...</h4>
-              <ul class="popover">
-                <li>Internet</li>
-                <li>TV</li>
-                <li>Kitchen</li>
-                <li>Washer</li>
-              </ul>
-          </div>
-          <div></div>
-          <button>
-            Search
-          </button>
+	<button>search</button>
+
+	<div class="locations">
+	  <h3>States</h3>
+	  <h4>New York, Colorado...</h4>
+
+	  <ul class="popover">
+	    <li><h2>California</h2></li>
+	    <li>San Francisco</li>
+	    <li><h2>New York</h2></li>
+	    <li>Buffalo</li>
+	  </ul>
+	</div>
+
+	<div class="amenities">
+	  <h3>Amenities</h3>
+          <h4>Air Conditioning, Kitchen...</h4>
+	  <ul class="popover">
+	    <li>Internet</li>
+	    <li>TV</li>
+	    <li>Kitchen</li>
+	    <li>Iron</li>
+	   </ul>
+	</div>
       </section>
-      <section class="places">
-          <h1>Places</h1>
-          <div class="plac">
-            <article>
-              <div class="place_home">
-                <div class="spaces">
-                </div>
-                <div class="div_home">
-                  <h2>Standard home</h2>
-                </div>
-                <div class="div_price">
-                  <div class="price_by_night">
-                    <p>$35</p>
-                  </div>
-                </div>
-              </div>
-              <div class="information">
-                <div class="max_guest">
-                  <p>3 Guest</p>
-                </div>
-                <div class="number_rooms">
-                  <p>2 Bedroom</p>
-                </div>
-                <div class="number_bathrooms">
-                  <p>1 Bathroom</p>
-                </div>
-              </div>
-              <div class="user">
-                  <p><strong>Owner:</strong> Elysa</p>
-              </div>
-              <div class="description">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-              </div>
-            </article>
-            <article>
-              <div class="place_home">
-                <div class="spaces">
-                </div>
-                <div class="div_home">
-                  <h2>Small house</h2>
-                </div>
-                <div class="div_price">
-                  <div class="price_by_night">
-                    <p>$14</p>
-                  </div>
-                </div>
-              </div>
-              <div class="information">
-                <div class="max_guest">
-                  <p>2 Guest</p>
-                </div>
-                <div class="number_rooms">
-                  <p>1 Bedroom</p>
-                </div>
-                <div class="number_bathrooms">
-                  <p>1 Bathroom</p>
-                </div>
-              </div>
-              <div class="user">
-                  <p><strong>Owner:</strong> Hannibal Cartage</p>
-              </div>
-              <div class="description">
-                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-              </div>
-            </article>
-            <article>
-              <div class="place_home">
-                <div class="spaces">
-                </div>
-                <div class="div_home">
-                  <h2>Double House</h2>
-                </div>
-                <div class="div_price">
-                  <div class="price_by_night">
-                    <p>$43</p>
-                  </div>
-                </div>
-              </div>
-              <div class="information">
-                <div class="max_guest">
-                  <p>4 Guest</p>
-                </div>
-                <div class="number_rooms">
-                  <p>2 Bedroom</p>
-                </div>
-                <div class="number_bathrooms">
-                  <p>2 Bathroom</p>
-                </div>
-              </div>
-              <div class="user">
-                  <p><strong>Owner:</strong> ALADIN</p>
-              </div>
-              <div class="description">
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-              </div>
-            </article>
-          </div>
-      </section>
+	<section class="places">
+	  <h1>Places</h1>
+	  <article><h2>My Home</h2>
+		<div class="price_by_night">$82</div>
+		<div class="information">
+		<div class="max_guest">2 guests </div>
+              <div class="number_rooms">1 bedrooms</div>
+              <div class="number_bathrooms">1 bathrooms</div>
+	      </div>
+		<div class="user"> <strong>Owner:</strong> Stevie Nicks </div>
+		<div class="description"> This listing is for a private room in my house. I will be here during your stay. I live in a nice, quiet family neighborhood located near the collage campuses as well as the subway that takes you straight into the heart of downtown.</div>
+	  </article>
+	  <article><h2>Tiny House</h2>
+	    <div class="price_by_night">$65</div>
+	    <div class="information">
+	      <div class="max_guest">4 guests </div>
+              <div class="number_rooms">2 bedrooms</div>
+              <div class="number_bathrooms">1 bathrooms</div>
+	    </div>
+	    <div class="user"> <strong>Owner:</strong> John Lennon </div>
+	    <div class="description">
+	      This 4-bedroom tiny house is less than a 30-minute drive from Niagara Falls and is in the heart and soul of North Buffalo and one of the city's most happening neighborhoods! The apartment is in a charming, vintage home near many top-rated local restaurants and shopping boutiques. Free street parking is easily accessible. </div>
+
+	  </article>
+	  <article><h2>A Suite</h2>
+	    <div class="price_by_night">$190</div>
+	    <div class="information">
+	      <div class="max_guest">6 guests </div>
+	      <div class="number_rooms">3 bedrooms</div>
+	      <div class="number_bathrooms">2 bathrooms</div>
+	    </div>
+	    <div class="user"> <strong>Owner:</strong> Janis Joplin </div>
+	    <div class="description"> Wonderful 1br suite located in the heart of Elmwood Village. Elmwood village is a prime location. The apartment is within walking distance of many stores, large parks, coffee shops, restaurants, and the best bars/nightclubs Buffalo has to offer. This is the perfect location for anyone exploring Buffalo's great attractions.</div>
+	  </article>
+	</section>
+
     </div>
     <footer>
-      <p>Holberton School</p>
+        <p> Holberton School </p>
     </footer>
   </body>
 </html>

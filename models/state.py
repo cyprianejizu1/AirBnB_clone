@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-""" State class """
-
-import uuid
-from datetime import datetime
-from models import storage
+""" module for State class """
 from models.base_model import BaseModel
 
 
 class State(BaseModel):
-    """ State class """
+    """
+    initiation of State that inherits from BaseModel class
+    Public Class Attributes:
+       (string) name: initialized as empty string
+    """
     name = ""

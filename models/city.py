@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-""" City class """
-
-import uuid
-from datetime import datetime
-from models import storage
+""" module for City class """
 from models.base_model import BaseModel
 
 
 class City(BaseModel):
-    """ City class """
+    """
+    initiation of City that inherits from BaseModel class
+    Public Class Attributes:
+       (string) state_id: initialized as empty string
+       (string) name: initialized as empty string
+    """
     state_id = ""
     name = ""

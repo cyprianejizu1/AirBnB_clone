@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-""" Amenity class """
-
-import uuid
-from datetime import datetime
-from models import storage
+""" module for Amenity class """
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    """ Amenity class """
+    """
+    initiation of Amenity that inherits from BaseModel class
+    Public Class Attributes:
+       (string) name: initialized as empty string
+    """
     name = ""

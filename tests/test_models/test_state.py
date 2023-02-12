@@ -1,101 +1,76 @@
 #!/usr/bin/python3
-""" unit test for class State """
-
-from models.state import State
-import pep8
 import unittest
+import pep8
+import json
+import os
+from datetime import datetime
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+from models.engine.file_storage import FileStorage
 
 
 class TestStateDocs(unittest.TestCase):
-    """ Test docstring in the class """
+    """ check for documentation """
+    def test_class_doc(self):
+        """ check for class documentation """
+        self.assertTrue(len(State.__doc__) > 0)
 
-    def test_doc_class(self):
-        """ Test document class """
-        doc = State.__doc__
-        assert doc is not None
 
-    def test_doc_methods_class(self):
-        """ Test document methods Class """
-        l_method = ["save", "__init__", "__str__", "to_dict"]
-        for key in State.__dict__.keys():
-            if key is l_method:
-                doc = key.__doc__
-                assert doc is not None
+class TestStatePep8(unittest.TestCase):
+    """ check for pep8 validation """
+    def test_pep8(self):
+        """ test base and test_base for pep8 conformance """
+        style = pep8.StyleGuide(quiet=True)
+        file1 = 'models/state.py'
+        file2 = 'tests/test_models/test_state.py'
+        result = style.check_files([file1, file2])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warning).")
 
 
 class TestState(unittest.TestCase):
-    """ Test creation objects and use methods """
+    """ tests for class State """
     @classmethod
     def setUpClass(cls):
-        ''' new_state up '''
-        cls_state = State()
-        cls_state.name = "Tunis"
-        cls_state.save()
-        cls_state_str = cls_state.to_dict()
+        """ set up instances for all tests """
+        cls.state = State()
 
-    def test_create_object(self):
-        """ Test created instance """
-        self.assertIsInstance(self.new_state, State)
+    def test_subclass(self):
+        """ test that state is a subclass of basemodel """
+        self.assertIsInstance(self.state, BaseModel)
+        self.assertTrue(hasattr(self.state, "id"))
+        self.assertTrue(hasattr(self.state, "created_at"))
+        self.assertTrue(hasattr(self.state, "updated_at"))
 
-    def test_string_representation(self):
-        """ Test string representation """
-        rep_str = str(self.new_state)
-        list = ['State', 'id', 'created_at', 'updated_at']
-        num = 0
-        for att in list:
-            if att in rep_str:
-                num += 216
-        self.assertTrue(4 == num)
+    def test_id(self):
+        """ test id """
+        self.assertEqual(str, type(self.state.id))
 
-    def test_method_save(self):
-        """ Test save method """
-        current = self.new_state.updated_at
-        self.new_state.save()
-        new = self.new_state.updated_at
-        self.assertNotEqual(current, new)
+    def test_created_at(self):
+        """ test created_at """
+        self.assertEqual(datetime, type(self.state.created_at))
 
-    def test_hasMethods(self):
-        ''' test the instance have the methods  '''
-        self.assertTrue(hasattr(self.new_state, '__str__'))
-        self.assertTrue(hasattr(self.new_state, '__init__'))
-        self.assertTrue(hasattr(self.new_state, 'to_dict'))
-        self.assertTrue(hasattr(self.new_state, 'save'))
+    def test_updated_at(self):
+        """ test updated_at """
+        self.assertEqual(datetime, type(self.state.updated_at))
 
-    def test_add_attributes(self):
-        """ add attributes to object"""
-        self.new_state.name = "Tunis"
-        list = [self.new_state.name]
-        expected = ["Tunis"]
-        self.assertEqual(expected, list)
+    def test_name(self):
+        """ test name """
+        self.assertTrue(hasattr(self.state, "name"))
+        self.assertEqual(self.state.name, "")
 
-    def test_method_to_dict(self):
-        self.new_state.name = "Tunis"
-        dict_rep = self.new_state.to_dict()
-        list = ['id', 'created_at', 'updated_at',
-                    'name', '__class__']
-        num = 0
-        for att in dict_rep.keys():
-            if att in list:
-                num += 216
-        self.assertTrue(5 == num)
-
-    def test_pep8_conformance(self):
-        """Tests pep8 style"""
-        style = pep8.StyleGuide(quiet=True)
-        p = style.check_files([
-                                        'models/state.py',
-                                        'tests/test_models/test_state.py'
-                                        ])
-        self.assertEqual(p.total_errors, 0, "Check pep8")
+    def test_to_dict(self):
+        """ test to_dict method """
+        new_dict = self.state.to_dict()
+        self.assertEqual(type(new_dict), dict)
+        self.assertTrue('to_dict' in dir(self.state))
 
     @classmethod
     def tearDownClass(cls):
-        ''' Test new state Down '''
-        del cls_state
-        try:
-            os.remove("objects.json")
-        except BaseException:
-            pass
-
-if __name__ == '__main__':
-    unittest.main()
+        """ remove test instances """
+        pass

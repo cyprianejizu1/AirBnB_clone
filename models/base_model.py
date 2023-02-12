@@ -1,53 +1,51 @@
 #!/usr/bin/python3
-""" Module for Base """
-
-import uuid
+''' module for BaseModel class '''
 from datetime import datetime
-from uuid import uuid4
+import uuid
 import models
-import json
-
-format_dt = "%Y-%m-%dT%H:%M:%S.%f"
 
 
 class BaseModel:
-    """ Basemodel class """
+    ''' BaseModel class '''
     def __init__(self, *args, **kwargs):
-        """ Initialization of Database """
-        if args is not None and len(args) > 0:
-            pass
-        if kwargs:
-            for key, item in kwargs.items():
-                if key in ['created_at', 'updated_at']:
-                    item = datetime.strptime(item, format_dt)
-                if key not in ['__class__']:
-                    setattr(self, key, item)
+        '''
+        initation of basemodel
+        Args:
+        *args: arguments passed in
+        **kwargs: arguments with key values
+        Return:
+        None
+        '''
+        if len(kwargs) != 0:
+            self.__dict__ = kwargs
+            self.created_at = datetime.strptime(self.created_at,
+                                                "%Y-%m-%dT%H:%M:%S.%f")
+            self.updated_at = datetime.strptime(self.updated_at,
+                                                "%Y-%m-%dT%H:%M:%S.%f")
         else:
             self.id = str(uuid.uuid4())
-            self.created_at = self.updated_at = datetime.now()
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
             models.storage.new(self)
 
-    def to_dict(self):
-        """ to_dict definition """
-        
-        dic = {}
-        for key, item in self.__dict__.items():
-            if key in ['created_at', 'updated_at']:
-                dic[key] = item
-
-        dic['__class__'] = self.__class__.__name__
-        dic['created_at'] = self.created_at.isoformat()
-        dic['updated_at'] = self.updated_at.isoformat()
-        return dic
-
-
     def __str__(self):
-        """ str definition """
-        return("[{}] ({}) {}".format(self.__class__.__name__,
-                                     self.id, self.__dict__))
+        '''
+        Return:
+        string represntation fo object
+        '''
+        return '[{}] ({}) {}'.format(self.__class__.__name__,
+                                     self.id, self.__dict__)
 
     def save(self):
-        """ Save definition """
+        ''' updates date for updated_at attribute '''
         self.updated_at = datetime.now()
-        models.storage.new(self)
         models.storage.save()
+
+    def to_dict(self):
+        ''' returns dictonary with all key values of instance '''
+        mydict = self.__dict__.copy()
+        mydict['__class__'] = self.__class__.__name__
+        mydict['created_at'] = self.created_at.isoformat()
+        mydict['updated_at'] = self.updated_at.isoformat()
+
+        return mydict
