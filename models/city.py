@@ -1,14 +1,9 @@
 #!/usr/bin/python3
-""" module for City class """
+""" City Module for HBNB project """
 from models.base_model import BaseModel
 
 
 class City(BaseModel):
-    """
-    initiation of City that inherits from BaseModel class
-    Public Class Attributes:
-       (string) state_id: initialized as empty string
-       (string) name: initialized as empty string
-    """
+    """ The city class, contains state ID and name """
     state_id = ""
     name = ""
